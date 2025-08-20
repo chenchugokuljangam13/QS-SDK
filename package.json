@@ -1,5 +1,33 @@
 {
+  "name": "qs-sdk",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/main.js",
+  "scripts": {
+    "dev": "ts-node src/main.ts",
+    "build": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chenchugokuljangam13/QS-SDK.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/chenchugokuljangam13/QS-SDK/issues"
+  },
+  "homepage": "https://github.com/chenchugokuljangam13/QS-SDK#readme",
   "dependencies": {
-    "@aws-sdk/client-quicksight": "^3.865.0"
+    "@aws-sdk/client-quicksight": "^3.865.0",
+    "@aws-sdk/client-sts": "^3.864.0",
+    "fs": "^0.0.1-security",
+    "path": "^0.12.7"
+  },
+  "devDependencies": {
+    "@types/node": "^24.3.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.2"
   }
 }

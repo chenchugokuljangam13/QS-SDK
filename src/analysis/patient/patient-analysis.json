@@ -1,4 +1,4 @@
-export const patientAnalysisDefinition = {
+{
   "Definition": {
     "DataSetIdentifierDeclarations": [
       {
@@ -9,7 +9,7 @@ export const patientAnalysisDefinition = {
     "Sheets": [
       {
         "SheetId": "main-sheet",
-        "Name": "Patients Analysis SDK",
+        "Name": "Patients Analysis 1",
         "Visuals": [
           {
             "TableVisual": {
@@ -73,7 +73,7 @@ export const patientAnalysisDefinition = {
       }
     ]
   },
-  "Name": "Patients Analysis SDK",
+  "Name": "Patient Visits Analysis",
   "Permissions": [
     {
       "Actions": [
