@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "@aws-sdk/client-quicksight": "^3.865.0"
+  }
+}
