@@ -3,7 +3,7 @@
     "DataSetIdentifierDeclarations": [
       {
         "Identifier": "MyDataSetPlaceholder",
-        "DataSetArn": "arn:aws:quicksight:us-east-1:797098543009:dataset/5ba3c8fd-3d8e-48a7-b4f2-6f709936e240"
+        "DataSetArn": ""
       }
     ],
     "Sheets": [
@@ -85,7 +85,7 @@
         "quicksight:UpdateAnalysisPermissions",
         "quicksight:DescribeAnalysisPermissions"
       ],
-      "Principal": "arn:aws:quicksight:us-east-1:797098543009:user/default/AWSReservedSSO_EmployeeAccess_467d66d6678a8198/gokul.jangam@antstack.io"
+      "Principal": ""
     }
   ]
 }

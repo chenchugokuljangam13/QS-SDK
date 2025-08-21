@@ -4,8 +4,14 @@ import { DataSet } from "./quickSightClient";
 import { getGroupArn } from "./arnHelper";
 import { AnalysisDefinition } from "../types";
 import { STSClient, GetCallerIdentityCommand } from "@aws-sdk/client-sts";
+import "dotenv/config";
 
-const REGION = "us-east-1"; 
+const getArg = (key: string): string | undefined => {
+  const arg = process.argv.find(a => a.startsWith(`--${key}=`));
+  return arg ? arg.split("=")[1] : undefined;
+}
+
+export const REGION = getArg("region");
 const stsClient = new STSClient({ region: REGION });
 
 export const getAccountId = async (): Promise<string> => {
@@ -33,7 +39,6 @@ export const loadAnalysisDefinitions = async (
           dataSetList[analysisObj.DataSetName];
         if (analysisObj.Permissions && analysisObj.Permissions.length > 0) {
           const principalArn = await getGroupArn(analysisObj.GroupName);
-          console.log(principalArn);
           analysisObj.Permissions[0].Principal = principalArn;
         }
         configs.push(analysisObj);

@@ -1,52 +1,33 @@
 import { AnalysisDefinition, ResourcePermission } from "@aws-sdk/client-quicksight";
-export const patientAnalysis = {
+
+export const patientPieAnalysis = {
   GroupName: "Analysts",
   DataSetName: "test",
-  AnalysisId: "patient-analysis-sdk",
-  Name: "Patient Analysis sdk",
+  AnalysisId: "patient-analysis-pie",
+  Name: "Patient Analysis Pie Chart",
   Definition: {
     "DataSetIdentifierDeclarations": [
       {
         "Identifier": "MyDataSetPlaceholder",
-        "DataSetArn": "" 
+        "DataSetArn": "" // <-- Fill in actual DataSetArn
       }
     ],
     "Sheets": [
       {
-        "SheetId": "main-sheet",
-        "Name": "Patients Analysis sdk",
+        "SheetId": "pie-sheet",
+        "Name": "Patients Pie Chart Analysis",
         "Visuals": [
           {
-            "TableVisual": {
-              "VisualId": "visual1",
+            "PieChartVisual": {
+              "VisualId": "pie1",
               "Title": {
                 "Visibility": "VISIBLE",
-                "Text": "Patient Visits Overview"
+                "Text": "Patient Visits by Diagnosis"
               },
               "ChartConfiguration": {
                 "FieldWells": {
-                  "TableAggregatedFieldWells": {
-                    "GroupBy": [
-                      {
-                        "FieldId": "Patient Name",
-                        "CategoricalDimensionField": {
-                          "FieldId": "Patient Name",
-                          "Column": {
-                            "DataSetIdentifier": "MyDataSetPlaceholder",
-                            "ColumnName": "patient_name"
-                          }
-                        }
-                      },
-                      {
-                        "FieldId": "Doctor Name",
-                        "CategoricalDimensionField": {
-                          "FieldId": "Doctor Name",
-                          "Column": {
-                            "DataSetIdentifier": "MyDataSetPlaceholder",
-                            "ColumnName": "doctor_name"
-                          }
-                        }
-                      },
+                  "PieChartAggregatedFieldWells": {
+                    "Category": [
                       {
                         "FieldId": "Diagnosis",
                         "CategoricalDimensionField": {
@@ -56,11 +37,14 @@ export const patientAnalysis = {
                             "ColumnName": "diagnosis"
                           }
                         }
-                      },
+                      }
+                    ],
+                    "Values": [
                       {
-                        "FieldId": "Visited Date",
-                        "DateDimensionField": {
-                          "FieldId": "Visited Date",
+                        "FieldId": "Visits Count",
+                        "NumericalMeasureField": {
+                          "FieldId": "Visits Count",
+                          "AggregationFunction": { "SimpleNumericalAggregation": "COUNT" },
                           "Column": {
                             "DataSetIdentifier": "MyDataSetPlaceholder",
                             "ColumnName": "visit_date"
@@ -119,9 +103,9 @@ export const patientAnalysis = {
           "SelectedSheets": {
             "SheetVisualScopingConfigurations": [
               {
-                "SheetId": "main-sheet",
+                "SheetId": "pie-sheet",
                 "Scope": "SELECTED_VISUALS",
-                "VisualIds": ["visual1"]
+                "VisualIds": ["pie1"]
               }
             ]
           }
@@ -148,9 +132,9 @@ export const patientAnalysis = {
           "SelectedSheets": {
             "SheetVisualScopingConfigurations": [
               {
-                "SheetId": "main-sheet",
+                "SheetId": "pie-sheet",
                 "Scope": "SELECTED_VISUALS",
-                "VisualIds": ["visual1"]
+                "VisualIds": ["pie1"]
               }
             ]
           }
@@ -170,7 +154,7 @@ export const patientAnalysis = {
         "quicksight:UpdateAnalysisPermissions",
         "quicksight:DescribeAnalysisPermissions"
       ],
-      Principal: ""
+      Principal: "" // <-- Fill in the ARN of user/group/role
     }
   ] as ResourcePermission[],
 };

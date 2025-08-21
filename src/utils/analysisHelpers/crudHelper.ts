@@ -36,7 +36,6 @@ export const createOrUpdateAnalysis = async (definition: AnalysisDefinition, acc
         Definition,
         Permissions,
       });
-      console.log(createCmd);
       await qsClient.send(createCmd);
       console.log(`Created analysis: ${AnalysisId}`);
     } else {
